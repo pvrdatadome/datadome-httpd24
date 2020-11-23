@@ -13,7 +13,7 @@ RUN make -C DataDome-ApacheDome-* install
 RUN sed -i 's/#LoadModule ssl_module modules\/mod_ssl.so/LoadModule ssl_module modules\/mod_ssl.so/g' /usr/local/apache2/conf/httpd.conf
 
 # If you want use the config file from the root directory
-COPY ./mod_datadome.conf /usr/local/apache2/conf/extra/
+COPY ./config/mod_datadome.conf /usr/local/apache2/conf/extra/
 
 # else you want to use the default configuration file ...
 
@@ -25,7 +25,7 @@ COPY ./mod_datadome.conf /usr/local/apache2/conf/extra/
 RUN echo 'Include conf/extra/mod_datadome.conf' >> /usr/local/apache2/conf/httpd.conf
 
 # If you need to configure your httpd.conf
-#COPY ./my-httpd.conf /usr/local/apache2/conf/httpd.conf
+#COPY ./config/my-httpd.conf /usr/local/apache2/conf/httpd.conf
 
 # If you need to upload an app
 #COPY ./webcontent/ /usr/local/apache2/htdocs/
